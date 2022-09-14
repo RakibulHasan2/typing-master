@@ -46,6 +46,7 @@ const typeController = (e) => {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
+    errorCount++;
   }
 
   // check if given question text is equal to user typed text
@@ -53,6 +54,8 @@ const typeController = (e) => {
     gameOver();
   }
 };
+
+
 
 const validate = (key) => {
   if (key === questionText[userText.length - 1]) {
@@ -63,11 +66,11 @@ const validate = (key) => {
 
 // FINISHED TYPING
 const gameOver = () => {
-  document.removeEventListener("keydown", typeController);
+  document.removeEventListener("click", typeController);
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
-  const timeTaken = (finishTime - startTime) / 1000;
+  const timeTaken = Math.ceil((finishTime - startTime) / 1000);
 
   // show result modal
   resultModal.innerHTML = "";
