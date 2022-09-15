@@ -1,6 +1,6 @@
 const display = document.getElementById("display");
 const question = document.getElementById("question");
-const startBtn = document.getElementById("starts"); //1 .fixed this one start button
+const startBtn = document.getElementById("starts"); 
 const countdownOverlay = document.getElementById("countdown");
 const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
@@ -110,13 +110,13 @@ const start = () => {
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
-    countdownOverlay.innerHTML = `<h1>${count}</h1>`; //2 .fixed count down
+    countdownOverlay.innerHTML = `<h1>${count}</h1>`; 
 
     // finished timer
     if (count === 0) {
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
-      countdownOverlay.style.display = "none"; //3. fixed timer countdown
+      countdownOverlay.style.display = "none"; 
       display.classList.remove("inactive");
 
       clearInterval(startCountdown);
@@ -136,7 +136,7 @@ displayHistory();
 setInterval(() => {
   const currentTime = new Date().getTime();
   // console.log(currentTime,startTime)
-  const timeSpent = Math.ceil((currentTime - startTime) / 1000); //5. timer fraction value fixed
+  const timeSpent = Math.ceil((currentTime - startTime) / 1000); 
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
 }, 1000);
